@@ -447,7 +447,7 @@ module Google
       time = Time.parse(time) if time.is_a? String
 
       if all_day?
-        { "date" => time.strftime("%Y-%m-%d") }
+        { "date" => time.localtime.strftime("%Y-%m-%d") }
       else
         { "dateTime" => time.xmlschema }
       end
