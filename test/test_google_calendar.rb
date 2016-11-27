@@ -304,6 +304,14 @@ class TestGoogleCalendar < Minitest::Test
           assert !@event.all_day?
         end
       end
+      context "when using attribute accessor for start_time and end_time" do
+        should "be true" do
+          @event = Event.new
+          @event.start_time = "2012-03-31"
+          @event.end_time = "2012-04-03"
+          assert @event.all_day?
+        end
+      end
     end
 
     context "#all_day=" do
